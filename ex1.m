@@ -1,24 +1,29 @@
-clear;
+clear; clc;
+
 figure;
-axis([-1;1;-1;1]);
+x = -1:0.1:1;
+y = sinc(x);
+plot(x, y, 'b-', 'LineWidth', 1.5);
+grid on;
+axis([-1, 1, -0.5, 1.2]);
+xlabel('x');
+ylabel('sinc(x)');
+title('Fonction Sinus cardinal - Partie 1');
 
-x=-1:0.1:1;
-y=sinc(x);
-plot(x,y);
-
-clear;
 figure;
-axis([-1;1;-1;1]);
-
-size=100;
-x = linspace(-1,1,size);
-y = zeros(0,size);
-for a = x
-    if a == 0
-        y(end+1) = 1;
+x = linspace(-1, 1, 100);
+y = zeros(1, length(x));
+for i = 1:length(x)
+    if x(i) == 0
+        y(i) = 1;
     else
-        y(end+1) = sin(pi*a)/(pi*a);
+        y(i) = sin(pi * x(i)) / (pi * x(i));
     end
 end
-plot(x,y)
+plot(x, y, 'r-', 'LineWidth', 1.5);
+grid on;
+axis([-1, 1, -0.5, 1.2]);
+xlabel('x');
+ylabel('sin(\pi x)/(\pi x)');
+title('Fonction Sinus cardinal - Partie 2 (avec IF)');
 
